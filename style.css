@@ -1,0 +1,81 @@
+body {
+  background-image: url(./images/tetrisKids.jpg);
+  background-size: 50%;
+}
+
+nav {
+  background-color: crimson;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  margin-bottom: 5px;
+  border: solid black 2px;
+  margin-left: 650px;
+  margin-right: 650px;
+}
+
+h1 {
+  color: crimson;
+  font-weight: bold;
+  background-color: rgb(25, 224, 25);
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 5px;
+  border: solid black 2px;
+  margin-left: 650px;
+  margin-right: 650px;
+}
+
+#scoreboard {
+  margin-bottom: 60px;
+}
+
+li {
+  color: black;
+  font-weight: bold;
+}
+
+a {
+  color: black;
+}
+
+canvas {
+  background: black;
+  display: block;
+  margin: 0 auto;
+  border: solid crimson 2px;
+}
+
+#btn,
+#btn2,
+#btn3 {
+  background-color: rgb(25, 224, 25);
+}
+
+p {
+  color: white;
+  background-color: crimson;
+  margin-top: 50px;
+  margin-left: 650px;
+  margin-right: 650px;
+  text-align: center;
+}
+
+footer {
+  position: absolute;
+  background: #eae8e7;
+  border-top: crimson 2px solid;
+  border-bottom: crimson 2px solid;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  text-align: center;
+}
+
+#footerImg {
+  width: 25px;
+}
