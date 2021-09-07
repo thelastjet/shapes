@@ -4,7 +4,7 @@ const ROWS = 20;
 const COLS = 10; 
 const GAME_CLOCK = 1000; // blocks will fall every second (1000 milliseconds)
 
-// creating the different shapes. the zeros will have no color, the ones will have color.
+// creating the different shapes. the zeros will have no color, the numbers will have color.
 const SHAPES = [
   [],
   [

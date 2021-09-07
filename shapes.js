@@ -10,7 +10,7 @@ let score = 0;
 
 let newGameState = () => {
   fullSend();
-  if (model.fallingPiece === null) {
+  if (model.fallingPiece === null && score < 600) {
     const rand = Math.round(Math.random() * 6) + 1;
     const newPiece = new Piece(SHAPES[rand], ctx);
     model.fallingPiece = newPiece;
@@ -18,7 +18,7 @@ let newGameState = () => {
   } else {
     model.moveDown();
   }
-}
+};
 
 function start() {
   btn2.textContent = "Reset Game";
@@ -57,22 +57,21 @@ const fullSend = () => {
   scoreboard.innerHTML = "Score: " + String(score);
   if (score >= 600) {
     var parent = document.getElementById("scoreboard");
-    var winner = document.createElement("h1");
+    var winner = document.createElement("h2");
     winner.innerHTML = "You Win, Great Job!";
     parent.appendChild(winner);
     if (winner) {
-      fallingPiece.stop;
-    } 
+      return;
+    }
   }
-}
-
+};
 
 // setting up which keys can be used to move and rotate the shapes
 document.addEventListener("keydown", (e) => {
   e.preventDefault();
   switch (e.key) {
     //space key or the up arrow will rotate the shapes
-    case " "  :
+    case " ":
       model.rotate();
       break;
     case "ArrowUp":

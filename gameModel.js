@@ -16,7 +16,7 @@ class GameModel {
     }
     return grid;
   }
-  
+
   // checking to see if piece collides with another piece or sides of the game board
   collision(x, y, candidate = null) {
     const shape = candidate || this.fallingPiece.shape;
@@ -47,7 +47,7 @@ class GameModel {
         this.ctx.fillRect(j, i, 1, 1);
       }
     }
-    
+
     // draw the piece
     if (this.fallingPiece !== null) {
       this.fallingPiece.renderPiece();
@@ -55,40 +55,39 @@ class GameModel {
   }
 
   moveDown() {
-      if (this.fallingPiece === null) {
-        this.renderGameState();
-        return;
-      } else if (this.collision(this.fallingPiece.x, this.fallingPiece.y + 1)) {
-        const shape = this.fallingPiece.shape;
-        const x = this.fallingPiece.x;
-        const y = this.fallingPiece.y;
-        shape.map((row, i) => {
-          row.map((cell, j) => {
-            let p = x + j;
-            let q = y + i;
-            if (p >= 0 && p < COLS && q < ROWS && cell > 0) {
-              this.grid[q][p] = shape[i][j];
-            }
-          });
-        });
-
-        // check if the game is over
-        if (this.fallingPiece.y === 0) {
-          var parent = document.getElementById("scoreboard");
-          var gameOver = document.createElement("h1");
-          gameOver.innerHTML = "GAME OVER";
-          parent.appendChild(gameOver);
-          if (gameOver) {
-            return;
-          }
-        }
-        this.fallingPiece = null;
-      } else {
-        this.fallingPiece.y += 1;
-      }
+    if (this.fallingPiece === null) {
       this.renderGameState();
+      return;
+    } else if (this.collision(this.fallingPiece.x, this.fallingPiece.y + 1)) {
+      const shape = this.fallingPiece.shape;
+      const x = this.fallingPiece.x;
+      const y = this.fallingPiece.y;
+      shape.map((row, i) => {
+        row.map((cell, j) => {
+          let p = x + j;
+          let q = y + i;
+          if (p >= 0 && p < COLS && q < ROWS && cell > 0) {
+            this.grid[q][p] = shape[i][j];
+          }
+        });
+      });
+
+      // check if the game is over
+      if (this.fallingPiece.y === 0) {
+        var parent = document.getElementById("scoreboard");
+        var gameOver = document.createElement("h2");
+        gameOver.innerHTML = "GAME OVER";
+        parent.appendChild(gameOver);
+        if (gameOver) {
+          return;
+        }
+      }
+      this.fallingPiece = null;
+    } else {
+      this.fallingPiece.y += 1;
+    }
+    this.renderGameState();
   }
-  
 
   move(right) {
     if (this.fallingPiece === null) {
